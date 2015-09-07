@@ -14,10 +14,10 @@ That's why most of the documentation refers to the original documentation.
 
 * [How to install](#how-to-install)
 * [API documentation](#api)
-* [Demos](http://kimmobrunfeldt.github.io/progressbar.js/)
+* [Demos](http://kimmobrunfeldt.github.io/progressbar.js/) *These demos use the original progressbar.js but the options are exactly the
+same for react-progressbar.js too*
 
-    *These demos use the original progressbar.js but the options are exactly the
-    same for react-progressbar.js too*
+
 
 ## Get started
 
