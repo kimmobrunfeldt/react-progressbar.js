@@ -55,7 +55,7 @@ progress bars.
 
 [**ProgressBar**](#api)
 
-* [Line>](#shape)
+* [Line](#shape)
 * [Circle](#shape)
 * [SemiCircle](#shape)
 
@@ -70,7 +70,7 @@ set e.g.
 }
 ```
 
-### <Shape />
+### Shape
 
 Line, Circle or SemiCircle shaped progress bar. Appends SVG to container.
 
