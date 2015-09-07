@@ -5,10 +5,10 @@
 
 <br>
 Responsive and slick progress bars for React. Line, Circle and SemiCircle shaped
-progress bars are provided and their animations are highly [customizable](#custom-animations).
+progress bars are provided and their animations are highly [customizable](https://github.com/kimmobrunfeldt/progressbar.js#custom-animations).
 
 This module is a React wrapper for [progressbar.js](https://github.com/kimmobrunfeldt/progressbar.js).
-Most of the documentation is in the [progressbar.js repository](https://github.com/kimmobrunfeldt/progressbar.js).
+That's why most of the documentation refers to the original documentation.
 
 **Shortcuts**
 
@@ -55,9 +55,9 @@ progress bars.
 
 [**ProgressBar**](#api)
 
-* [<Line />](#shape)
-* [<Circle />](#shape)
-* [<SemiCircle />](#shape)
+* [Line>](#shape)
+* [Circle](#shape)
+* [SemiCircle](#shape)
 
 **Important:** make sure that your container has same aspect ratio
 as the SVG canvas. For example: if you are using SemiCircle,
