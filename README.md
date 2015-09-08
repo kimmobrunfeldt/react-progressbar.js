@@ -21,7 +21,7 @@ same for react-progressbar.js too*
 
 ## Get started
 
-*react-progressBar.js* is lightweight, MIT licensed and supports all major browsers including **IE9+**.
+*react-progressbar.js* is lightweight, MIT licensed and supports all major browsers including **IE9+**.
 
 #### How to install
 
