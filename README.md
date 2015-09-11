@@ -101,9 +101,9 @@ var App = React.createClass({
                 options={options}
                 initialAnimate={true}
                 containerStyle={containerStyle}
-                containerClassName{'.progressbar'} />
+                containerClassName={'.progressbar'} />
         );
-    }    
+    }
 });
 ```
 

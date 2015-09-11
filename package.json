@@ -49,7 +49,8 @@
     "semver": "^5.0.1",
     "shelljs": "^0.5.3",
     "string": "^3.3.1",
-    "watchify": "^3.4.0"
+    "watchify": "^3.4.0",
+    "reactify": "^1.1.1"
   },
   "scripts": {
     "start": "concurrent 'npm run serve' 'npm run watch-js' 'open http://localhost:8080'",
