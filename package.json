@@ -52,6 +52,11 @@
     "watchify": "^3.4.0",
     "reactify": "^1.1.1"
   },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
+  },
   "scripts": {
     "start": "concurrent 'npm run serve' 'npm run watch-js' 'open http://localhost:8080'",
     "watch-js": "watchify local-dev/main.js -t reactify -o local-dev/bundle.js --debug --verbose",
