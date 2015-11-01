@@ -1,6 +1,6 @@
 {
   "name": "react-progressbar.js",
-  "version": "0.1.2",
+  "version": "0.1.2-dev",
   "description": "React wrapper for progressbar.js",
   "main": "src/main.js",
   "repository": {
