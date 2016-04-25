@@ -37,6 +37,7 @@
     "babel": "^5.8.23",
     "babel-eslint": "^4.1.1",
     "babel-jscs": "^2.0.4",
+    "babelify": "^7.2.0",
     "bluebird": "^2.9.34",
     "commander": "^2.8.1",
     "concurrently": "^0.1.1",
@@ -46,11 +47,11 @@
     "jscs": "^2.1.1",
     "lodash": "^3.10.1",
     "mustache": "^2.1.3",
+    "reactify": "^1.1.1",
     "semver": "^5.0.1",
     "shelljs": "^0.5.3",
     "string": "^3.3.1",
-    "watchify": "^3.4.0",
-    "reactify": "^1.1.1"
+    "watchify": "^3.4.0"
   },
   "browserify": {
     "transform": [
