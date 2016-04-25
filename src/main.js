@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDom = require('react-dom');
 var isEqual = require('lodash.isequal');
 var ProgressBar = require('progressbar.js');
 
@@ -54,7 +55,7 @@ var Shape = React.createClass({
 
         // setState function is not used to prevent a new render cycle
         // This handling happens outside of React component's lifecycle
-        var container = React.findDOMNode(this.refs.progressBar);
+        var container = ReactDom.findDOMNode(this.refs.progressBar);
         this.state.shape = new props.ShapeClass(
             container,
             props.options
