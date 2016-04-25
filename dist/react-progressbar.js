@@ -121,24 +121,21 @@
 
     var Line = React.createClass({
         displayName: 'Line',
-
-        render() {
+        render: function render() {
             return React.createElement(Shape, _extends({}, this.props, { ShapeClass: ProgressBar.Line }));
         }
     });
 
     var Circle = React.createClass({
         displayName: 'Circle',
-
-        render() {
+        render: function render() {
             return React.createElement(Shape, _extends({}, this.props, { ShapeClass: ProgressBar.Circle }));
         }
     });
 
     var SemiCircle = React.createClass({
         displayName: 'SemiCircle',
-
-        render() {
+        render: function render() {
             return React.createElement(Shape, _extends({}, this.props, { ShapeClass: ProgressBar.SemiCircle }));
         }
     });
