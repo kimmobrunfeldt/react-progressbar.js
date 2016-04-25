@@ -2,7 +2,7 @@
   "name": "react-progressbar.js",
   "version": "0.1.2-dev",
   "description": "React wrapper for progressbar.js",
-  "main": "src/main.js",
+  "main": "dist/react-progressbar.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kimmobrunfeldt/react-progressbar.js.git"
@@ -36,8 +36,11 @@
   },
   "devDependencies": {
     "babel": "^6.5.2",
+    "babel-cli": "^6.7.7",
     "babel-eslint": "^6.0.3",
     "babel-jscs": "^3.0.0-beta1",
+    "babel-plugin-transform-es2015-modules-umd": "^6.6.5",
+    "babel-preset-react": "^6.5.0",
     "babelify": "^7.2.0",
     "bluebird": "^3.3.5",
     "commander": "^2.8.1",
@@ -62,6 +65,7 @@
   "scripts": {
     "start": "concurrent 'npm run serve' 'npm run watch-js' 'open http://localhost:8080'",
     "watch-js": "watchify local-dev/main.js -t reactify -o local-dev/bundle.js --debug --verbose",
+    "build": "babel src/main.js -o ./dist/react-progressbar.js",
     "serve": "http-server ./local-dev -c 0",
     "lint": "./tools/lint.sh",
     "jscs": "jscs ./src ./test",
