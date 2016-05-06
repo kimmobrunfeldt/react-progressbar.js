@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDOM = require('react-dom')
 var ProgressBar = require('../src/main.js');
 var Circle = ProgressBar.Circle;
 
@@ -34,7 +35,7 @@ var App = React.createClass({
     }
 });
 
-React.render(
+ReactDOM.render(
     <App />,
     document.querySelector('body')
 );
