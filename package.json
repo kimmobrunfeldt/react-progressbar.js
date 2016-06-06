@@ -1,5 +1,5 @@
 {
-  "name": "react-progressbar.js",
+  "name": "@vivlabs/react-progressbar.js",
   "version": "0.1.2-dev2",
   "description": "React wrapper for progressbar.js",
   "main": "src/main.js",
