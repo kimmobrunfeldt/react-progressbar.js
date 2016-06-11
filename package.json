@@ -1,6 +1,6 @@
 {
-  "name": "react-progressbar.js",
-  "version": "0.1.2-dev",
+  "name": "@vivlabs/react-progressbar.js",
+  "version": "0.1.2-dev2",
   "description": "React wrapper for progressbar.js",
   "main": "src/main.js",
   "repository": {
@@ -30,13 +30,17 @@
   "homepage": "https://github.com/kimmobrunfeldt/react-progressbar.js#readme",
   "dependencies": {
     "lodash.isequal": "^3.0.4",
-    "progressbar.js": "^0.9.0",
-    "react": "^0.13.3"
+    "progressbar.js": "^0.9.0"
+  },
+  "peerDependencies": {
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2"
   },
   "devDependencies": {
     "babel": "^5.8.23",
     "babel-eslint": "^4.1.1",
     "babel-jscs": "^2.0.4",
+    "babelify": "^7.1.0",
     "bluebird": "^2.9.34",
     "commander": "^2.8.1",
     "concurrently": "^0.1.1",
@@ -46,11 +50,13 @@
     "jscs": "^2.1.1",
     "lodash": "^3.10.1",
     "mustache": "^2.1.3",
+    "reactify": "^1.1.1",
     "semver": "^5.0.1",
     "shelljs": "^0.5.3",
     "string": "^3.3.1",
     "watchify": "^3.4.0",
-    "reactify": "^1.1.1"
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2"
   },
   "browserify": {
     "transform": [
