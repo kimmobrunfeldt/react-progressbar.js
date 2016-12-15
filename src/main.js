@@ -90,7 +90,7 @@ var Shape = React.createClass({
     },
 
     _setText: function _setText(text) {
-        if (text) {
+        if (typeof text !== 'undefined' && text !== null) {
             this.state.shape.setText(text);
         }
     }
