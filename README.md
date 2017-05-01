@@ -1,9 +1,7 @@
 # react-progressbar.js
 
-<br>
-![Demo animation](docs/animation.gif)
+![Demo animation](/docs/animation.gif)
 
-<br>
 Responsive and slick progress bars for React. Line, Circle and SemiCircle shaped
 progress bars are provided and their animations are highly [customizable](https://github.com/kimmobrunfeldt/progressbar.js#custom-animations).
 
