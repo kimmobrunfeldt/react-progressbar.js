@@ -50,11 +50,21 @@ declare module "react-progressbar.js" {
         shape: any;
     }
 
-    export class Shape extends React.Component<ShapeProps, ShapeState> { }
+    export class Shape extends React.Component<ShapeProps, ShapeState> {
+        animateProgress(progress: number);
+        setProgress(progress: number);
+        setText(text: string);
+    }
 
-    export class Line extends Shape { }
+    export class Line extends Shape {
+        public _shape: Shape;
+    }
 
-    export class Circle extends Shape { }
+    export class Circle extends Shape {
+        public _shape: Shape;
+    }
 
-    export class SemiCircle extends Shape { }
+    export class SemiCircle extends Shape {
+        public _shape: Shape;
+    }
 }

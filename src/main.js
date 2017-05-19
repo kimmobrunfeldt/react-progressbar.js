@@ -99,7 +99,7 @@ class Shape extends React.Component {
 }
 
 class Line extends React.Component {
-    get shape() {
+    get _shape() {
         return this.refs.shape;
     }
 
@@ -109,7 +109,7 @@ class Line extends React.Component {
 }
 
 class Circle extends React.Component {
-    get shape() {
+    get _shape() {
         return this.refs.shape;
     }
 
@@ -119,7 +119,7 @@ class Circle extends React.Component {
 }
 
 class SemiCircle extends React.Component {
-    get shape() {
+    get _shape() {
         return this.refs.shape;
     }
 
