@@ -40,8 +40,8 @@ class Shape extends React.Component {
             return;
         }
 
-        this._animateProgress(nextProps.progress);
-        this._setText(nextProps.text);
+        this.animateProgress(nextProps.progress);
+        this.setText(nextProps.text);
     }
 
     componentDidMount() {
@@ -64,15 +64,15 @@ class Shape extends React.Component {
 
         if (props.initialAnimate) {
             if (oldProps) {
-                this._setProgress(oldProps.progress);
+                this.setProgress(oldProps.progress);
             }
 
-            this._animateProgress(props.progress);
+            this.animateProgress(props.progress);
         } else {
-            this._setProgress(props.progress);
+            this.setProgress(props.progress);
         }
 
-        this._setText(props.text);
+        this.setText(props.text);
     }
 
     _destroy() {
@@ -82,15 +82,15 @@ class Shape extends React.Component {
         }
     }
 
-    _animateProgress(progress) {
+    animateProgress(progress) {
         this.state.shape.animate(progress);
     }
 
-    _setProgress(progress) {
+    setProgress(progress) {
         this.state.shape.set(progress);
     }
 
-    _setText(text) {
+    setText(text) {
         if (text) {
             this.state.shape.setText(text);
         }
@@ -98,20 +98,32 @@ class Shape extends React.Component {
 }
 
 class Line extends React.Component {
+    get shape() {
+        return this.refs.shape;
+    }
+
     render() {
-        return React.createElement(Shape, _extends({}, this.props, { ShapeClass: ProgressBar.Line }));
+        return React.createElement(Shape, _extends({}, this.props, { ref: 'shape', ShapeClass: ProgressBar.Line }));
     }
 }
 
 class Circle extends React.Component {
+    get shape() {
+        return this.refs.shape;
+    }
+
     render() {
-        return React.createElement(Shape, _extends({}, this.props, { ShapeClass: ProgressBar.Circle }));
+        return React.createElement(Shape, _extends({}, this.props, { ref: 'shape', ShapeClass: ProgressBar.Circle }));
     }
 }
 
 class SemiCircle extends React.Component {
+    get shape() {
+        return this.refs.shape;
+    }
+
     render() {
-        return React.createElement(Shape, _extends({}, this.props, { ShapeClass: ProgressBar.SemiCircle }));
+        return React.createElement(Shape, _extends({}, this.props, { ref: 'shape', ShapeClass: ProgressBar.SemiCircle }));
     }
 }
 
