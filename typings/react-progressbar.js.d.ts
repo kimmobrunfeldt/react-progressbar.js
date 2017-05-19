@@ -57,14 +57,14 @@ declare module "react-progressbar.js" {
     }
 
     export class Line extends Shape {
-        public _shape: Shape;
+        public readonly _shape: Shape;
     }
 
     export class Circle extends Shape {
-        public _shape: Shape;
+        public readonly _shape: Shape;
     }
 
     export class SemiCircle extends Shape {
-        public _shape: Shape;
+        public readonly _shape: Shape;
     }
 }
