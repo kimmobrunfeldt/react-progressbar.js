@@ -12,8 +12,13 @@ class Shape extends React.Component {
             text: null,
             initialAnimate: false,
             containerStyle: {},
-            containerClassName: '.progressbar-container'
+            containerClassName: '.progressbar-container',
+            svgPath: null
         };
+    }
+
+    get _isPath() {
+        return this.props.ShapeClass instanceof ProgressBar.Path;
     }
 
     constructor(props) {
@@ -59,7 +64,7 @@ class Shape extends React.Component {
         // This handling happens outside of React component's lifecycle
         var container = ReactDom.findDOMNode(this.refs.progressBar);
         this.state.shape = new props.ShapeClass(
-            container,
+            this._isPath ? this.props.svgPath : container,
             props.options
         );
 
@@ -128,9 +133,19 @@ class SemiCircle extends React.Component {
     }
 }
 
+class Path extends React.Component {
+    get _shape() {
+        return this.refs.shape;
+    }
+
+    render() {
+        return <Shape {...this.props} ref="shape" ShapeClass={ProgressBar.Path} />;
+    }
+}
+
 module.exports = {
-    Shape: Shape,
     Line: Line,
     Circle: Circle,
-    SemiCircle: SemiCircle
+    SemiCircle: SemiCircle,
+    Path: Path
 }

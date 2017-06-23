@@ -14,8 +14,13 @@ class Shape extends React.Component {
             text: null,
             initialAnimate: false,
             containerStyle: {},
-            containerClassName: '.progressbar-container'
+            containerClassName: '.progressbar-container',
+            svgPath: null
         };
+    }
+
+    get _isPath() {
+        return this.props.ShapeClass instanceof ProgressBar.Path;
     }
 
     constructor(props) {
@@ -60,7 +65,7 @@ class Shape extends React.Component {
         // setState function is not used to prevent a new render cycle
         // This handling happens outside of React component's lifecycle
         var container = ReactDom.findDOMNode(this.refs.progressBar);
-        this.state.shape = new props.ShapeClass(container, props.options);
+        this.state.shape = new props.ShapeClass(this._isPath ? this.props.svgPath : container, props.options);
 
         if (props.initialAnimate) {
             if (oldProps) {
@@ -127,9 +132,19 @@ class SemiCircle extends React.Component {
     }
 }
 
+class Path extends React.Component {
+    get _shape() {
+        return this.refs.shape;
+    }
+
+    render() {
+        return React.createElement(Shape, _extends({}, this.props, { ref: 'shape', ShapeClass: ProgressBar.Path }));
+    }
+}
+
 module.exports = {
-    Shape: Shape,
     Line: Line,
     Circle: Circle,
-    SemiCircle: SemiCircle
+    SemiCircle: SemiCircle,
+    Path: Path
 };
