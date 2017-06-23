@@ -144,8 +144,8 @@ class Path extends React.Component {
 }
 
 module.exports = {
+    Shape: Shape,
     Line: Line,
     Circle: Circle,
-    SemiCircle: SemiCircle,
-    Path: Path
+    SemiCircle: SemiCircle
 }
