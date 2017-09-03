@@ -12,7 +12,7 @@ var App = React.createClass({
     },
 
     render: function() {
-        return <Circle initialAnimate={this.state.initialAnimate} options={this.state.options} progress={this.state.progress} />;
+        return <Circle onAnimationEnd={this.onAnimationEnd} initialAnimate={this.state.initialAnimate} options={this.state.options} progress={this.state.progress} />;
     },
 
     componentDidMount: function() {
@@ -32,6 +32,10 @@ var App = React.createClass({
             });
         }, 500);
 
+    },
+
+    onAnimationEnd() {
+      console.log('animation end');
     }
 });
 
