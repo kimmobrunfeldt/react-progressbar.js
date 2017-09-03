@@ -120,6 +120,7 @@ options            | Options for path drawing. See [progressbar.js documentation
 initialAnimate     | If `true`, progress bar is animated to given progress when mounted. Default `false`.
 containerStyle     | Styles for progress bar container. Default `{}`.
 containerClassName | Class name for progress bar container. Default `.progressbar-container`.
+onAnimationEnd     | Callback when animation ends.
 
 ## Contributing
 
