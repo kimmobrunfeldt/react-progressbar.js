@@ -105,7 +105,7 @@
         },
 
         _animateProgress: function _animateProgress(progress) {
-            this.state.shape.animate(progress);
+            this.state.shape.animate(progress, this.props.onAnimationEnd);
         },
 
         _setProgress: function _setProgress(progress) {
