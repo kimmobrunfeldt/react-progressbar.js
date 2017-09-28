@@ -1,121 +1,115 @@
-var React = require('react');
-var ReactDom = require('react-dom');
-var isEqual = require('lodash.isequal');
-var ProgressBar = require('progressbar.js');
+import React from 'react';
+import PropTypes from 'prop-types';
+import isEqual from 'lodash.isequal';
+import ProgressBar from 'progressbar.js';
 
-var Shape = React.createClass({
-    getDefaultProps: function getDefaultProps() {
-        return {
-            ShapeClass: null,
-            options: {},
-            progress: 0,
-            text: null,
-            initialAnimate: false,
-            containerStyle: {},
-            containerClassName: '.progressbar-container'
-        };
-    },
+export class Shape extends React.Component {
+    componentDidMount() {
+        this.shape = null;
+        this.create(this.props);
+    }
 
-    getInitialState: function getInitialState() {
-        return {
-            shape: null
-        };
-    },
-
-    render: function render() {
-        var style = this.props.containerStyle;
-        var className = this.props.containerClassName;
-
-        return <div className={className} style={style} ref="progressBar"></div>;
-    },
-
-    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps) {
         if (!isEqual(this.props.options, nextProps.options)) {
-            this._destroy();
-            this._create(nextProps, this.props);
-            return;
+            this.destroy();
+            this.create(nextProps, this.props);
+            return false;
         }
 
-        this._animateProgress(nextProps.progress);
-        this._setText(nextProps.text);
-    },
+        this.animateProgress(nextProps.progress);
+        this.setText(nextProps.text);
+        return true;
+    }
 
-    componentDidMount: function componentDidMount() {
-        this._create(this.props);
-    },
+    componentWillUnmount() {
+        this.destroy();
+    }
 
-    componentWillUnmount: function componentWillUnmount() {
-        this._destroy()
-    },
+    setProgress(progress) {
+        this.shape.set(progress);
+    }
 
-    _create: function _create(props, oldProps) {
-        if (this.state.shape !== null) {
+    setText(text) {
+        if (text) {
+            this.shape.setText(text);
+        }
+    }
+
+    create(nextProps, oldProps) {
+        if (this.shape !== null) {
             throw new Error('Progressbar is already created');
         }
 
-        // setState function is not used to prevent a new render cycle
-        // This handling happens outside of React component's lifecycle
-        var container = ReactDom.findDOMNode(this.refs.progressBar);
-        this.state.shape = new props.ShapeClass(
-            container,
-            props.options
+        this.shape = new nextProps.ShapeClass(
+            this.progressBar,
+            nextProps.options,
         );
 
-        if (props.initialAnimate) {
+        if (nextProps.initialAnimate) {
             if (oldProps) {
-                this._setProgress(oldProps.progress);
+                this.setProgress(oldProps.progress);
             }
 
-            this._animateProgress(props.progress);
+            this.animateProgress(nextProps.progress);
         } else {
-            this._setProgress(props.progress);
+            this.setProgress(nextProps.progress);
         }
 
-        this._setText(props.text);
-    },
+        this.setText(nextProps.text);
+    }
 
-    _destroy: function _destroy() {
-        if (this.state.shape) {
-            this.state.shape.destroy();
-            this.state.shape = null;
-        }
-    },
+    animateProgress(progress) {
+        this.shape.animate(progress);
+    }
 
-    _animateProgress: function _animateProgress(progress) {
-        this.state.shape.animate(progress);
-    },
-
-    _setProgress: function _setProgress(progress) {
-        this.state.shape.set(progress);
-    },
-
-    _setText: function _setText(text) {
-        if (text) {
-            this.state.shape.setText(text);
+    destroy() {
+        if (this.shape) {
+            this.shape.destroy();
+            this.shape = null;
         }
     }
-});
 
-var Line = React.createClass({
     render() {
-        return <Shape {...this.props} ShapeClass={ProgressBar.Line} />;
+        const style = this.props.containerStyle;
+        const className = this.props.containerClassName;
+        return (
+            <div
+                className={className}
+                style={style}
+                ref={(node) => {
+                    this.progressBar = node;
+                }}
+            />
+        );
     }
-});
+}
 
-var Circle = React.createClass({
-    render() {
-        return <Shape {...this.props} ShapeClass={ProgressBar.Circle} />;
-    }
-});
-
-var SemiCircle = React.createClass({
-    render() {
-        return <Shape {...this.props} ShapeClass={ProgressBar.SemiCircle} />;
-    }
-});
-
-module.exports = {
-    Line: Line,
-    Circle: Circle,
-    SemiCircle: SemiCircle
+Shape.defaultProps = {
+    ShapeClass: null,
+    options: {},
+    progress: 0,
+    text: null,
+    initialAnimate: false,
+    containerStyle: {},
+    containerClassName: '.progressbar-container',
 };
+
+Shape.propTypes = {
+    ShapeClass: PropTypes.oneOf([ProgressBar.Circle]),
+    options: PropTypes.objectOf(PropTypes.oneOfType([
+        PropTypes.number,
+        PropTypes.string,
+        PropTypes.object,
+    ])),
+    progress: PropTypes.number,
+    text: PropTypes.string,
+    initialAnimate: PropTypes.bool,
+    containerStyle: PropTypes.objectOf(PropTypes.string),
+    containerClassName: PropTypes.string,
+};
+
+export const Line = props => <Shape {...props} ShapeClass={ProgressBar.Line} />;
+
+export const Circle = props => <Shape {...props} ShapeClass={ProgressBar.Circle} />;
+
+export const SemiCircle = props => <Shape {...props} ShapeClass={ProgressBar.SemiCircle} />;
