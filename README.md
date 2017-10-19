@@ -119,7 +119,7 @@ text               | Value for progress bar's text. Default `null`.
 options            | Options for path drawing. See [progressbar.js documentation](https://github.com/kimmobrunfeldt/progressbar.js#shapecontainer-options).
 initialAnimate     | If `true`, progress bar is animated to given progress when mounted. Default `false`.
 containerStyle     | Styles for progress bar container. Default `{}`.
-containerClassName | Class name for progress bar container. Default `.progressbar-container`.
+containerClassName | Class name for progress bar container. Default `progressbar-container`.
 
 ## Contributing
 

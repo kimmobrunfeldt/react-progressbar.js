@@ -38,7 +38,7 @@
                 text: null,
                 initialAnimate: false,
                 containerStyle: {},
-                containerClassName: '.progressbar-container'
+                containerClassName: 'progressbar-container'
             };
         },
 
