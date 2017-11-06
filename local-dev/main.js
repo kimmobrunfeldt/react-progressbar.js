@@ -3,19 +3,17 @@ var ReactDom = require('react-dom');
 var ProgressBar = require('../src/main.js');
 var Circle = ProgressBar.Circle;
 
-var App = React.createClass({
-    getInitialState: function() {
-        return {
-            progress: 0.1,
-            options: {}
-        };
-    },
+class App extends React.Component {
+    state = {
+        progress: 0.1,
+        options: {}
+    };
 
-    render: function() {
+    render() {
         return <Circle initialAnimate={this.state.initialAnimate} options={this.state.options} progress={this.state.progress} />;
-    },
+    }
 
-    componentDidMount: function() {
+    componentDidMount() {
         var self = this;
         setTimeout(function() {
             console.log('setstate')
@@ -33,7 +31,7 @@ var App = React.createClass({
         }, 500);
 
     }
-});
+}
 
 ReactDom.render(
     <App />,
