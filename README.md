@@ -1,6 +1,7 @@
 # react-progressbar.js
 
 <br>
+
 ![Demo animation](docs/animation.gif)
 
 <br>
