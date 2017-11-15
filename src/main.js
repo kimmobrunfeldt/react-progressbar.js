@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { findDOMNode } from 'react-dom';
-import isEqual from 'lodash/isequal';
+import isEqual from 'lodash/isEqual';
 import ProgressBar from 'progressbar.js';
 
 class Shape extends Component {
@@ -16,7 +16,7 @@ class Shape extends Component {
 
     constructor(props) {
         super(props);
-        
+
         this.state = {
             shape: null
         };
@@ -32,7 +32,7 @@ class Shape extends Component {
         if (!isEqual(this.props.options, nextProps.options)) {
             this._destroy();
             this._create(nextProps, this.props);
-            
+
             return;
         }
 
@@ -56,7 +56,7 @@ class Shape extends Component {
         // setState function is not used to prevent a new render cycle
         // This handling happens outside of React component's lifecycle
         var container = findDOMNode(this.refs.progressBar);
-        
+
         this.state.shape = new props.ShapeClass(
             container,
             props.options
@@ -66,12 +66,12 @@ class Shape extends Component {
             if (oldProps) {
                 this._setProgress(oldProps.progress);
             }
-        
+
             this._animateProgress(props.progress);
         } else {
             this._setProgress(props.progress);
         }
-        
+
         this._setText(props.text);
     }
 

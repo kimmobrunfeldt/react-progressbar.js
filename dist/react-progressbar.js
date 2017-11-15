@@ -1,21 +1,21 @@
 (function (global, factory) {
     if (typeof define === "function" && define.amd) {
-        define(['module', 'react', 'react-dom', 'lodash/isequal', 'progressbar.js'], factory);
+        define(['module', 'react', 'react-dom', 'lodash/isEqual', 'progressbar.js'], factory);
     } else if (typeof exports !== "undefined") {
-        factory(module, require('react'), require('react-dom'), require('lodash/isequal'), require('progressbar.js'));
+        factory(module, require('react'), require('react-dom'), require('lodash/isEqual'), require('progressbar.js'));
     } else {
         var mod = {
             exports: {}
         };
-        factory(mod, global.react, global.reactDom, global.isequal, global.progressbar);
+        factory(mod, global.react, global.reactDom, global.isEqual, global.progressbar);
         global.main = mod.exports;
     }
-})(this, function (module, _react, _reactDom, _isequal, _progressbar) {
+})(this, function (module, _react, _reactDom, _isEqual, _progressbar) {
     'use strict';
 
     var _react2 = _interopRequireDefault(_react);
 
-    var _isequal2 = _interopRequireDefault(_isequal);
+    var _isEqual2 = _interopRequireDefault(_isEqual);
 
     var _progressbar2 = _interopRequireDefault(_progressbar);
 
@@ -114,7 +114,7 @@
         }, {
             key: 'componentWillReceiveProps',
             value: function componentWillReceiveProps(nextProps) {
-                if (!(0, _isequal2.default)(this.props.options, nextProps.options)) {
+                if (!(0, _isEqual2.default)(this.props.options, nextProps.options)) {
                     this._destroy();
                     this._create(nextProps, this.props);
 
