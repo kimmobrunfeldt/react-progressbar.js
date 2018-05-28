@@ -31,8 +31,8 @@
   "dependencies": {
     "lodash.isequal": "^4.1.4",
     "progressbar.js": "^1.0.1",
-    "react": "^15.0.1",
-    "react-dom": "^15.0.1"
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
   },
   "devDependencies": {
     "babel": "^6.5.2",
@@ -65,7 +65,7 @@
   },
   "scripts": {
     "start": "concurrent 'npm run serve' 'npm run watch-js' 'open http://localhost:8080'",
-    "watch-js": "watchify local-dev/main.js -t reactify -o local-dev/bundle.js --debug --verbose",
+    "watch-js": "watchify local-dev/main.js -o local-dev/bundle.js --debug --verbose",
     "build": "babel src/main.js -o ./dist/react-progressbar.js",
     "serve": "http-server ./local-dev -c 0",
     "lint": "./tools/lint.sh",
