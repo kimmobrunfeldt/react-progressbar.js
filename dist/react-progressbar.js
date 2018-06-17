@@ -105,11 +105,11 @@
             key: 'render',
             value: function render() {
                 var _props = this.props,
-                    style = _props.style,
-                    className = _props.className;
+                    containerStyle = _props.containerStyle,
+                    containerClassName = _props.containerClassName;
 
 
-                return _react2.default.createElement('div', { className: className, style: style, ref: 'progressBar' });
+                return _react2.default.createElement('div', { className: containerClassName, style: containerStyle, ref: 'progressBar' });
             }
         }, {
             key: 'componentWillReceiveProps',
