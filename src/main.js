@@ -11,7 +11,8 @@ class Shape extends Component {
         text: null,
         initialAnimate: false,
         containerStyle: {},
-        containerClassName: '.progressbar-container'
+        containerClassName: '.progressbar-container',
+        customShape: null
     }
 
     constructor(props) {
@@ -57,10 +58,18 @@ class Shape extends Component {
         // This handling happens outside of React component's lifecycle
         var container = findDOMNode(this.refs.progressBar);
 
-        this.state.shape = new props.ShapeClass(
-            container,
-            props.options
-        );
+        if (props.customShape) {
+            this.state.shape = new props.ShapeClass(
+                props.customShape,
+                props.options
+            );
+        }
+        else {
+            this.state.shape = new props.ShapeClass(
+                container,
+                props.options
+            );
+        }
 
         if (props.initialAnimate) {
             if (oldProps) {
@@ -115,8 +124,15 @@ class SemiCircle extends Component {
     }
 };
 
+class Path extends Component {
+    render() {
+        return <Shape {...this.props} ShapeClass={ProgressBar.Path} />;
+    }
+};
+
 module.exports = {
     Line: Line,
     Circle: Circle,
-    SemiCircle: SemiCircle
+    SemiCircle: SemiCircle,
+    Path: Path
 };
