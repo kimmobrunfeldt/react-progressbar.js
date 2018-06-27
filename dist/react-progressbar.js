@@ -145,7 +145,11 @@
                 // This handling happens outside of React component's lifecycle
                 var container = (0, _reactDom.findDOMNode)(this.refs.progressBar);
 
-                this.state.shape = new props.ShapeClass(container, props.options);
+                if (props.customShape) {
+                    this.state.shape = new props.ShapeClass(props.customShape, props.options);
+                } else {
+                    this.state.shape = new props.ShapeClass(container, props.options);
+                }
 
                 if (props.initialAnimate) {
                     if (oldProps) {
@@ -254,9 +258,31 @@
 
     ;
 
+    var Path = function (_Component5) {
+        _inherits(Path, _Component5);
+
+        function Path() {
+            _classCallCheck(this, Path);
+
+            return _possibleConstructorReturn(this, (Path.__proto__ || Object.getPrototypeOf(Path)).apply(this, arguments));
+        }
+
+        _createClass(Path, [{
+            key: 'render',
+            value: function render() {
+                return _react2.default.createElement(Shape, _extends({}, this.props, { ShapeClass: _progressbar2.default.Path }));
+            }
+        }]);
+
+        return Path;
+    }(_react.Component);
+
+    ;
+
     module.exports = {
         Line: Line,
         Circle: Circle,
-        SemiCircle: SemiCircle
+        SemiCircle: SemiCircle,
+        Path: Path
     };
 });
