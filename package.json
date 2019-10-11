@@ -46,7 +46,7 @@
     "bluebird": "^3.3.5",
     "commander": "^2.8.1",
     "concurrently": "^2.0.0",
-    "eslint": "^2.8.0",
+    "eslint": "^6.5.1",
     "eslint-plugin-react": "^5.0.1",
     "http-server": "^0.9.0",
     "jscs": "^3.0.3",
